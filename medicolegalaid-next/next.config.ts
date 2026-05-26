@@ -5,9 +5,6 @@ const nextConfig: NextConfig = {
   // Configure pageExtensions to include MDX files
   pageExtensions: ["js", "jsx", "md", "mdx", "ts", "tsx"],
   // We can add other Next.js config here if needed
-  images: {
-    unoptimized: true, // Useful for simple VPS hosting
-  },
 };
 
 const withMDX = createMDX({

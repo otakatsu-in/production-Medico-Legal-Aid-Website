@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { 
   Scale, Shield, AlertTriangle, BookOpen, 
   CheckCircle, ArrowRight, PlayCircle, 
@@ -102,6 +103,7 @@ export default function Home() {
                     src="https://player.vimeo.com/video/1195752345?title=0&byline=0&portrait=0&dnt=1"
                     className="absolute inset-0 w-full h-full"
                     allow="autoplay"
+                    loading="lazy"
                     allowFullScreen
                     title="Dr. Vinaykumar explains the MedicoLegal Masterclass"
                   />
@@ -276,9 +278,11 @@ export default function Home() {
               className="relative"
             >
               <div className="absolute inset-0 bg-accent translate-x-4 translate-y-4 rounded-sm"></div>
-              <img 
+              <Image 
                 src="/dr-vinay.jpg"
                 alt="Dr. Vinaykumar" 
+                width={800}
+                height={600}
                 className="relative z-10 w-full h-[500px] object-cover object-top rounded-sm"
               />
             </MotionDiv>
