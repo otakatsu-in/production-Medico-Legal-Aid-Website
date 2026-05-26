@@ -75,7 +75,7 @@ export default function Navbar({ activePage }: NavbarProps) {
         {/* Right side: CTA + hamburger */}
         <div className="flex items-center gap-3">
           <Button asChild size="lg" className="hidden md:inline-flex bg-primary text-primary-foreground hover:bg-primary/90 font-semibold rounded-sm">
-            <Link href="https://course.medicolegalaid.com">Join Course Now</Link>
+            <Link href="https://course.medicolegalaid.com" target="_blank" rel="noopener noreferrer">Join Course Now</Link>
           </Button>
           <button
             className="md:hidden p-2 rounded-sm text-primary hover:bg-muted transition-colors"
@@ -116,7 +116,7 @@ export default function Navbar({ activePage }: NavbarProps) {
             )
           )}
           <Button asChild size="lg" className="mt-4 w-full bg-primary text-primary-foreground font-semibold rounded-sm">
-            <Link href="https://course.medicolegalaid.com" onClick={() => setOpen(false)}>
+            <Link href="https://course.medicolegalaid.com" target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>
               Join Course Now
             </Link>
           </Button>

@@ -61,7 +61,7 @@ export default function Home() {
               </p>
               <div className="flex flex-wrap gap-4 mb-8">
                 <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90 text-base px-7 h-12 rounded-sm font-semibold border-none">
-                  <Link href="https://course.medicolegalaid.com">Join Course Now</Link>
+                  <Link href="https://course.medicolegalaid.com" target="_blank" rel="noopener noreferrer">Join Course Now</Link>
                 </Button>
                 <Button asChild size="lg" variant="outline" className="text-base px-7 h-12 rounded-sm font-semibold border-white/30 text-white hover:bg-white/10 bg-transparent">
                   <Link href="#course">Learn More</Link>
