@@ -99,7 +99,7 @@ export default function Home() {
                 </div>
                 <div className="relative w-full rounded-sm overflow-hidden border-2 border-accent/30 shadow-2xl" style={{ paddingTop: "56.25%" }}>
                   <iframe
-                    src="https://drive.google.com/file/d/1-5iOvbyBMe51onyFqO9tXm7tH2VfJjQG/preview"
+                    src="https://player.vimeo.com/video/1195752345?title=0&byline=0&portrait=0&dnt=1"
                     className="absolute inset-0 w-full h-full"
                     allow="autoplay"
                     allowFullScreen
