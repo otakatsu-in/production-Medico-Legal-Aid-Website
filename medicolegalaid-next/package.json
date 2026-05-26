@@ -5,7 +5,6 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "postbuild": "cp -r public .next/standalone/medicolegalaid-next/ && cp -r .next/static .next/standalone/medicolegalaid-next/.next/",
     "start": "next start",
     "lint": "next lint",
     "db:generate": "drizzle-kit generate",
