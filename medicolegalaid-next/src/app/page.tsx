@@ -466,6 +466,7 @@ export default function Home() {
                       "MLC Handling in OPD & IPD Settings",
                       "Medical Negligence — Civil vs Criminal Liability",
                       "MLC Documentation, Drafting & Model Formats",
+                      "Drafting Certificates: Medical, Death, Fitness & Wound",
                       "Top Medicolegal Mistakes and How to Avoid Them",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2">
