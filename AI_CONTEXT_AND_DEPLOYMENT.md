@@ -8,7 +8,7 @@ The project is a `pnpm` workspace containing a Next.js frontend (`medicolegalaid
 - **The Fix:** The root `package.json` build command was updated to use `npx pnpm`:
   `"build": "npx pnpm -F medicolegalaid-next run build"`
   This ensures `npx` automatically downloads `pnpm` on the fly and specifically builds only the frontend, ignoring other workspace artifacts.
-- **pnpm Install Failure:** Modern pnpm versions block `postinstall` scripts for security reasons. If the build fails with `[ERR_PNPM_IGNORED_BUILDS]`, ensure `pnpm.onlyBuiltDependencies` is defined in `package.json` to allow packages like `esbuild` and `sharp` to build their binaries.
+- **pnpm Install Failure:** Modern pnpm versions block `postinstall` scripts for security reasons. If the build fails with `[ERR_PNPM_IGNORED_BUILDS]`, ensure the blocked packages (like `esbuild` and `sharp`) are added to the `onlyBuiltDependencies` array inside `pnpm-workspace.yaml`. (Do not put this in `package.json` as it's deprecated in pnpm v9+).
 
 ## 2. Next.js Routing & Hostinger CDN Conflicts (404/503 Errors)
 - **The Problem:** Using Next.js `output: 'standalone'` causes severe conflicts with Hostinger's LiteSpeed CDN. The CDN intercepts requests for `/_next/static/*` and tries to find them at the root, but standalone mode buries them deep in `.next/standalone/...`. This results in client-side crashes and `404 Not Found` errors for Javascript chunks.
