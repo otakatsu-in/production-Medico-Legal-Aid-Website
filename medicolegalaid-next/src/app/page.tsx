@@ -467,6 +467,7 @@ export default function Home() {
                       "Medical Negligence — Civil vs Criminal Liability",
                       "MLC Documentation, Drafting & Model Formats",
                       "Drafting Certificates: Medical, Death, Fitness & Wound",
+                      "Vicarious Liability and How It Impacts Doctors and Nursing Home Owners",
                       "Top Medicolegal Mistakes and How to Avoid Them",
                     ].map((item, i) => (
                       <li key={i} className="flex items-start gap-2">

@@ -21,6 +21,7 @@ const topics = [
   "Medical Negligence — Civil vs Criminal Liability, Bolam Test",
   "MLC Documentation — Drafting, Preservation & Model Formats",
   "Drafting Certificates: Medical, Death, Fitness & Wound",
+  "Vicarious Liability and How It Impacts Doctors and Nursing Home Owners",
   "Clinical Specialty Scenarios (Customisable)",
   "Top Medicolegal Mistakes Doctors Make — and How to Avoid Them",
   "Confidence Building for Real-World Medicolegal Challenges",
