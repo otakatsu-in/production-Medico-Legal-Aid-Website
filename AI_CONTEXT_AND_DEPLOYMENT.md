@@ -5,10 +5,10 @@ This document contains accumulated knowledge, architectural decisions, and deplo
 ## 1. Monorepo Build Setup
 The project is a `pnpm` workspace containing a Next.js frontend (`medicolegalaid-next`).
 - **Hostinger Build Issue:** Hostinger's background deployment servers do not always have `pnpm` installed globally, which causes `pnpm: command not found` errors if you rely on it.
-- **The Fix:** The root `package.json` build command was updated to use `npx pnpm`:
-  `"build": "npx pnpm -F medicolegalaid-next run build"`
-  This ensures `npx` automatically downloads `pnpm` on the fly and specifically builds only the frontend, ignoring other workspace artifacts.
-- **pnpm Install Failure:** Modern pnpm versions block `postinstall` scripts for security reasons. If the build fails with `[ERR_PNPM_IGNORED_BUILDS]`, ensure the blocked packages (like `esbuild` and `sharp`) are added to the `onlyBuiltDependencies` array inside `pnpm-workspace.yaml`. (Do not put this in `package.json` as it's deprecated in pnpm v9+).
+- **The Fix:** The root `package.json` build command was updated to use `npx pnpm@9.15.4`:
+  `"build": "npx pnpm@9.15.4 -F medicolegalaid-next run build"`
+  This ensures `npx` automatically downloads a stable `pnpm` version on the fly. It is CRITICAL to pin this version (e.g., `pnpm@9.15.4`) and NOT use `npx pnpm` because `npx pnpm@latest` will pull pnpm v11+ which contains breaking changes (like removing `onlyBuiltDependencies` in favor of `allowBuilds`) that will completely break Hostinger's automatic `pnpm install` step.
+- **pnpm Install Failure:** Modern pnpm versions block `postinstall` scripts for security reasons. If the build fails with `[ERR_PNPM_IGNORED_BUILDS]`, ensure the blocked packages (like `esbuild` and `sharp`) are added to the `onlyBuiltDependencies` array inside `pnpm-workspace.yaml`. (Do not put this in `package.json` as it's deprecated).
 
 ## 2. Next.js Routing & Hostinger CDN Conflicts (404/503 Errors)
 - **The Problem:** Using Next.js `output: 'standalone'` causes severe conflicts with Hostinger's LiteSpeed CDN. The CDN intercepts requests for `/_next/static/*` and tries to find them at the root, but standalone mode buries them deep in `.next/standalone/...`. This results in client-side crashes and `404 Not Found` errors for Javascript chunks.
