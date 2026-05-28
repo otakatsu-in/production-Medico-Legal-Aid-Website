@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import SeminarEnquiryForm from "@/components/forms/SeminarEnquiryForm";
 import SeminarFAQSection from "@/components/SeminarFAQSection";
 import { MotionDiv } from "@/components/Motion";
+import Image from "next/image";
 
 export const metadata = {
   title: "CME Medico-Legal Workshops for Doctors & Associations | MedicoLegalAid",
@@ -27,10 +28,37 @@ const topics = [
   "Confidence Building for Real-World Medicolegal Challenges",
 ];
 
-const facts = [
-  "It is a legal and ethical duty for doctors to report an MLC to the police immediately — the patient's consent is NOT required.",
-  "A single mistake in consent documentation can lead to massive compensation claims.",
-  "An MLC report prepared by a doctor is crucial documentary evidence in criminal trials.",
+
+
+const logos = [
+  "/images/logos/-indian-medical-association.png",
+  "/images/logos/02asi.png",
+  "/images/logos/04ida.png",
+  "/images/logos/05ima.jpg",
+  "/images/logos/08ssimsdavangere.png",
+  "/images/logos/10koimsmadikeri.svg",
+  "/images/logos/11smsimsr.png",
+  "/images/logos/federation-of-obstetric-and-gynaecological-societies-of-india-fogsi.png",
+  "/images/logos/indian-academy-of-pediatrics.png",
+  "/images/logos/jjm-medical-college-and-hospital.png",
+  "/images/logos/kodagu-institute-of-medical-sciences-koims-madikeri.png",
+  "/images/logos/koppal-institute-of-medical-sciences-kims.png",
+  "/images/logos/s.s.-institute-of-medical-sciences-and-research-centre.png",
+];
+
+const seminarPhotos = [
+  "/images/seminars/10.9.2024-at-jjmc-medical-college-dvg-topic-documentaion-mistakes--.webp",
+  "/images/seminars/24-.8-24-at-davanegre-in-medicolelgal-topic-vacarious-liability-workshop-conducted-at-ssims--rc.webp",
+  "/images/seminars/at-cochin-ima-hall-topic-criminal-liability-for-doctros.webp",
+  "/images/seminars/at-davanegre-topic-legal-issues-concered-with-nursing-practice.webp",
+  "/images/seminars/at-ima-bangalore-for-medicoelgal-workshop-topic-real-case-scinario-discussions-.webp",
+  "/images/seminars/at-ima-state-conference-topic-consent-and-its-pitfalls.jpg",
+  "/images/seminars/at-mangalore-dakshina-kannada-conferenc-topic-pannel-discussion-on-legal-issues.webp",
+  "/images/seminars/at-pedicon-2025-topic-pannel-discussion.webp",
+  "/images/seminars/img-20250304-wa0096.webp",
+  "/images/seminars/t-kolkatta-for-pannel-discussion-on-legal-issues.webp",
+  "/images/seminars/talk-to-indian-dental-associaion-topic-consent-in-cental-practice.webp",
+  "/images/seminars/talka-tp-surgical-assiciation-topic-certificate-writing.webp",
 ];
 
 export default function SeminarsPage() {
@@ -117,6 +145,47 @@ export default function SeminarsPage() {
                 <p className="text-sm text-muted-foreground mt-1">{sub}</p>
               </MotionDiv>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trusted By Logos */}
+      <section className="py-12 bg-white border-b border-border overflow-hidden">
+        <div className="container mx-auto px-4 text-center mb-8">
+          <p className="text-sm font-bold uppercase tracking-wider text-muted-foreground">Trusted by top medical institutions</p>
+        </div>
+        <div className="relative w-full overflow-hidden flex">
+          {/* Gradient masks for smooth fading at edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+          
+          <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+            {/* First set of logos */}
+            <div className="flex items-center gap-16 px-8">
+              {logos.map((logo, i) => (
+                <div key={i} className="relative w-40 h-20 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src={logo}
+                    alt={`Trusted Institution Logo ${i + 1}`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
+            {/* Second identical set for seamless looping */}
+            <div className="flex items-center gap-16 px-8">
+              {logos.map((logo, i) => (
+                <div key={`dup-${i}`} className="relative w-40 h-20 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+                  <Image
+                    src={logo}
+                    alt={`Trusted Institution Logo ${i + 1}`}
+                    fill
+                    className="object-contain"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -250,29 +319,89 @@ export default function SeminarsPage() {
         </div>
       </section>
 
-      {/* Key Facts */}
-      <section className="py-24 bg-muted/30 border-y border-border">
-        <div className="container mx-auto px-4 max-w-5xl">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-serif font-bold text-primary mb-3">What Every Doctor Must Know</h2>
-            <p className="text-muted-foreground">Ignorance of law is never a defense — knowledge is your strongest protection.</p>
+      {/* Talks and Recognition Marquee */}
+      <section className="py-24 bg-white overflow-hidden border-y border-border">
+        <div className="container mx-auto px-4 mb-12">
+          <div className="max-w-3xl">
+            <h2 className="text-3xl font-serif font-bold text-primary mb-3">Talks &amp; Recognition</h2>
+            <p className="text-muted-foreground text-lg">A visual journey of our impactful medicolegal sessions, workshops, and prestigious speaking engagements.</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {facts.map((fact, i) => (
-              <MotionDiv
-                key={i}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className="bg-white border border-border rounded-sm p-6 shadow-sm"
-              >
-                <p className="text-foreground leading-relaxed">{fact}</p>
-              </MotionDiv>
-            ))}
+        </div>
+        
+        <div className="relative w-full flex flex-col gap-6">
+          {/* Gradient masks for smooth fading at edges */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-r from-white to-transparent pointer-events-none"></div>
+          <div className="absolute right-0 top-0 bottom-0 w-16 md:w-32 z-10 bg-gradient-to-l from-white to-transparent pointer-events-none"></div>
+          
+          {/* First Row - Scrolling Left */}
+          <div className="flex w-max animate-marquee hover:[animation-play-state:paused]">
+            <div className="flex items-center gap-6 px-3">
+              {seminarPhotos.slice(0, 6).map((photo, i) => (
+                <div key={i} className="relative w-[75vw] sm:w-[45vw] md:w-[35vw] lg:w-[25vw] aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-border">
+                  <Image
+                    src={photo}
+                    alt={`Medicolegal Talk ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 75vw, 35vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              ))}
+            </div>
+            {/* Duplicate for infinite effect */}
+            <div className="flex items-center gap-6 px-3">
+              {seminarPhotos.slice(0, 6).map((photo, i) => (
+                <div key={`dup-${i}`} className="relative w-[75vw] sm:w-[45vw] md:w-[35vw] lg:w-[25vw] aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-border">
+                  <Image
+                    src={photo}
+                    alt={`Medicolegal Talk ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 75vw, 35vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Second Row - Scrolling Right */}
+          <div className="flex w-max animate-marquee-reverse hover:[animation-play-state:paused]">
+            <div className="flex items-center gap-6 px-3">
+              {seminarPhotos.slice(6, 12).map((photo, i) => (
+                <div key={i} className="relative w-[75vw] sm:w-[45vw] md:w-[35vw] lg:w-[25vw] aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-border">
+                  <Image
+                    src={photo}
+                    alt={`Medicolegal Recognition ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 75vw, 35vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              ))}
+            </div>
+            {/* Duplicate for infinite effect */}
+            <div className="flex items-center gap-6 px-3">
+              {seminarPhotos.slice(6, 12).map((photo, i) => (
+                <div key={`dup2-${i}`} className="relative w-[75vw] sm:w-[45vw] md:w-[35vw] lg:w-[25vw] aspect-[4/3] rounded-xl overflow-hidden shadow-md group border border-border">
+                  <Image
+                    src={photo}
+                    alt={`Medicolegal Recognition ${i + 1}`}
+                    fill
+                    sizes="(max-width: 768px) 75vw, 35vw"
+                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-in-out"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
+
+
 
       {/* FAQs */}
       <section className="py-24 bg-white">
